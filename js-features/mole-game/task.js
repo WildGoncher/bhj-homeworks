@@ -19,11 +19,11 @@ for (let index = 1; index <= 9; index++) {
       lost.textContent = counterLoose;
     }
     if (counter >= 10) {
-      alert("You Won!");
+      alert("You Win!");
       clear();
     }
     if (counterLoose >= 5) {
-      alert("You Lost!");
+      alert("You Lose!");
       clear();
     }
   };
