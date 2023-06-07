@@ -10,7 +10,6 @@ function clear() {
 }
 for (let index = 1; index <= 9; index++) {
   getHole = (index) => document.getElementById(`hole${index}`);
-  //console.log(getHole());
   getHole(index).onclick = function mole() {
     if (getHole(index).className.includes("hole_has-mole")) {
       counter++;
