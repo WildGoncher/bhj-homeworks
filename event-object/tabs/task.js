@@ -1,22 +1,17 @@
-let tabs1 = document.querySelector(".tabs");
-if (tabs1) {
-  let tabs = document.querySelectorAll(".tab");
-  let tabsContent = document.querySelectorAll(".tab__content");
+let tab = document.querySelectorAll('.tab');
+let tabContent = document.querySelectorAll('.tab__content');
+let activeCategory = 0;
 
-  let elem = Array.from(tabs);
-  let elemtab = Array.from(tabsContent);
-  for (let i = 0; i < tabs.length; i++) {
-    elem[i].addEventListener("click", function (e) {
-      for (let j = 0; j < tabs.length; j++) {
-        if (elem[j].className == "tab tab_active") {
-          elem[j].className = "tab";
-          elemtab[j].className = "tab__content";
-        }
-      }
-      if (elem[i].className == "tab") {
-        elem[i].className += " tab_active";
-        elemtab[i].className += " tab__content_active";
-      }
-    });
-  }
-}
+tab.forEach((el, i) => {
+    el.addEventListener('click', () => {
+        tab.forEach(elem => {
+            elem.classList.remove('tab_active')
+        })
+        tabContent.forEach(element => {
+            element.classList.remove('tab__content_active')
+        })
+        activeCategory = i;
+        tab[activeCategory].classList.add('tab_active');
+        tabContent[activeCategory].classList.add('tab__content_active');
+    })
+})
