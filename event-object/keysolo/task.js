@@ -17,13 +17,15 @@ class Game {
   }
 
   registerEvents() {
-    document.addEventListener("keyup", (e) => {
-      if (this.currentSymbol.innerText.toLowerCase() == e.key.toLowerCase()) {
-        this.success();
+    document.addEventListener("keydown", ser);
+    let self = this;
+    function ser(e) {
+      if (self.currentSymbol.innerText === e.key) {
+        self.success();
       } else {
-        this.fail();
+        self.fail();
       }
-    });
+    }
   }
 
   success() {
