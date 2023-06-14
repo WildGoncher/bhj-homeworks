@@ -1,18 +1,28 @@
-card = document.querySelector(".card");
-if (card) {
-  list = document.querySelectorAll(".dropdown__item");
-  ul = document.querySelector(".dropdown__list");
-  value = document.querySelector(".dropdown__value");
-  alink = document.querySelectorAll(".dropdown__link");
+const dropdownValue = document.querySelector('.dropdown__value');
+const dropdownList = document.querySelector('.dropdown__list');
+const dropdownLink = document.querySelectorAll('.dropdown__link');
+const dropdown = document.querySelectorAll('.dropdown');
 
-  value.addEventListener("click", function (e) {
-    ul.classList.toggle("dropdown__list_active");
-  });
-  for (let link of alink) {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      ul.classList.toggle("dropdown__list_active");
-      value.textContent = link.textContent;
-    });
-  }
+
+
+function dropdownClose () { 
+    dropdownValue.addEventListener("click", () =>{
+    dropdownList.classList.toggle('dropdown__list_active');
+    })
 }
+dropdownClose();
+
+function dropdownUp () {
+    dropdownList.classList.toggle('dropdown__list_active');
+}
+
+let linkArray = Array.from(dropdownLink);
+
+linkArray.forEach((el, i) => {
+
+el.addEventListener('click', (e) =>{
+    e.preventDefault();
+    dropdownValue.textContent = el.textContent;
+    dropdownUp ();
+});
+});
